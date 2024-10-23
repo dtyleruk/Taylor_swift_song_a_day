@@ -1,14 +1,4 @@
-// Array of Taylor Swift songs and their corresponding Spotify embed URLs
-/*
-const songs = [
-    { title: "Love Story", url: "2fPvQfGQEZOKtJ9qXeL4x8" },
-    { title: "Blank Space", url: "1u8c2t2Cy7UBoG4ArRcF5g" },
-    { title: "Shake It Off", url: "0V3wPSX9ygBnCm8psDIegu" }
-];
-*/
-
-// Array of Taylor Swift songs and their corresponding Spotify track ids 
-const songs = [
+[
   {
     "title": "I Can Do It With a Broken Heart",
     "url": "2fPvQfGQEZOKtJ9qXeL4x8?si"
@@ -1625,20 +1615,4 @@ const songs = [
     "title": "Carolina - \"Where The Crawdads Sing\" - Video Edition",
     "url": "12xIjI9A9UlB6zEc7kyZ06?si"
   }
-];
-
-
-// Function to get a random song
-function getRandomSong() {
-    const randomIndex = Math.floor(Math.random() * songs.length);
-    return songs[randomIndex];
-}
-
-// Get a random song
-const song = getRandomSong();
-
-const song_url = "https://open.spotify.com/embed/track/".concat(song.url).concat("?utm_source=generator");
-
-// Set the song title and iframe src
-document.getElementById('song').innerText = song.title;
-document.getElementById('spotify-player').src = song_url;
+]
