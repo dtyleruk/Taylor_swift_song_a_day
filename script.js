@@ -1634,8 +1634,20 @@ function getRandomSong() {
     return songs[randomIndex];
 }
 
+// Function to get a song for a given day
+function getSongOfTheDay() {
+    const date = new Date(); // Get the current date
+    const dayOfYear = Math.floor(
+        (Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) - 
+         Date.UTC(date.getFullYear(), 0, 0)) / 86400000
+    ); // Calculate the day of the year (1-365)
+    const songIndex = dayOfYear % songs.length; // Use modulo to cycle through the song list
+    return songs[songIndex];
+}
+
 // Get a random song
-const song = getRandomSong();
+//const song = getRandomSong();
+const song = getSongOfTheDay();
 
 const song_url = "https://open.spotify.com/embed/track/".concat(song.url).concat("?utm_source=generator");
 
