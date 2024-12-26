@@ -1634,15 +1634,23 @@ function getRandomSong() {
     return songs[randomIndex];
 }
 
-// Function to get a song for a given day
+// Function to generate a pseudorandom number based on a seed
+function seededRandom(seed) {
+    const x = Math.sin(seed) * 10000;
+    return x - Math.floor(x);
+}
+
+// Function to get a random song for a given day
 function getSongOfTheDay() {
-    const date = new Date(); // Get the current date
+    const date = new Date();
     const dayOfYear = Math.floor(
         (Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) - 
          Date.UTC(date.getFullYear(), 0, 0)) / 86400000
     ); // Calculate the day of the year (1-365)
-    const songIndex = dayOfYear % songs.length; // Use modulo to cycle through the song list
-    return songs[songIndex];
+
+    const seed = dayOfYear + date.getFullYear(); // Combine day of the year and year as seed
+    const randomIndex = Math.floor(seededRandom(seed) * songs.length); // Generate random index
+    return songs[randomIndex];
 }
 
 // Get a random song
